@@ -13,9 +13,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { LoginReducer } from './store/login/login.reducer';
 import * as LoginEffects from './store/login/login.effects';
 import * as UserEffects from './store/user/user.effects';
+import * as TicketsEffects from './store/tickets/tickets.effects';
 import { UserReducer } from './store/user/user.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TicketsReducer } from './store/tickets/tickets.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,8 +30,12 @@ export const appConfig: ApplicationConfig = {
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
       connectInZone: true, // If set to true, the connection is established within the Angular zone
     }),
-    provideStore({ login: LoginReducer, user: UserReducer }),
-    provideEffects(LoginEffects, UserEffects),
+    provideStore({
+      login: LoginReducer,
+      user: UserReducer,
+      tickets: TicketsReducer,
+    }),
+    provideEffects(LoginEffects, UserEffects, TicketsEffects),
 
     provideHttpClient(),
     provideAnimationsAsync(),

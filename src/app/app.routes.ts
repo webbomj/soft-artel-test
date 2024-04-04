@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HomeComponent } from './pages/home/home.component';
 import { authGuard } from './guard/auth.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { TicketsComponent } from './pages/tickets/tickets.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -11,6 +12,11 @@ export const routes: Routes = [
   {
     path: 'profile/:id',
     component: ProfileComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'tickets',
+    component: TicketsComponent,
     canActivate: [authGuard],
   },
   { path: '**', component: PageNotFoundComponent },
