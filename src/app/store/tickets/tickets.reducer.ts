@@ -5,6 +5,7 @@ import { TicketState } from './tickets.model';
 export const initialState: TicketState = {
   isLoading: false,
   tickets: [],
+  selectedTicket: null,
 };
 
 const _ticketsReducer = createReducer(
@@ -21,6 +22,10 @@ const _ticketsReducer = createReducer(
   on(TicketsPageAction.ticketsLoadError, (state) => ({
     ...state,
     isLoading: false,
+  })),
+  on(TicketsPageAction.selecteTicket, (state, action) => ({
+    ...state,
+    selectedTicket: action.id,
   }))
 );
 

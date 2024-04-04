@@ -8,4 +8,5 @@ export interface Ticket {
 export type TicketState = {
   isLoading: boolean;
   tickets: Ticket[];
+  selectedTicket: number | null;
 };

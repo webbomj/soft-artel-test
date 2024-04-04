@@ -5,7 +5,10 @@ import {
   selectTickets,
   selectTicketsIsLoadin,
 } from '../../store/tickets/tickets.selectors';
-import { beginLoadTickets } from '../../store/tickets/tickets.actions';
+import {
+  beginLoadTickets,
+  selecteTicket,
+} from '../../store/tickets/tickets.actions';
 import { Ticket } from '../../store/tickets/tickets.model';
 import { Router } from '@angular/router';
 
@@ -29,6 +32,10 @@ export class TicketsComponent implements OnInit {
   }
 
   navigateToTicket(ticket: Ticket) {
-    console.log(ticket);
+    const id = ticket.id;
+
+    this.store.dispatch(selecteTicket({ id: id }));
+
+    this.router.navigate([`ticket/${id}`]);
   }
 }

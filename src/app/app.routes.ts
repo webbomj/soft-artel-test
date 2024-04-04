@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { authGuard } from './guard/auth.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TicketsComponent } from './pages/tickets/tickets.component';
+import { TicketComponent } from './pages/ticket/ticket.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,11 @@ export const routes: Routes = [
   {
     path: 'tickets',
     component: TicketsComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'ticket/:id',
+    component: TicketComponent,
     canActivate: [authGuard],
   },
   { path: '**', component: PageNotFoundComponent },

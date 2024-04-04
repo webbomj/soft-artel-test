@@ -1,0 +1,24 @@
+@if(ticket()) {
+    <mat-card>
+        <mat-card-header  class="card">
+          <mat-card-title>Ticket {{ ticket()?.id }}</mat-card-title>
+          <mat-card-content>
+            <p>
+              Title: {{ticket()?.title}}
+            </p>
+            <div>CreatedAt: 
+                <mat-form-field>
+                    <mat-label>Birthday Date</mat-label>
+                    <input matInput [matDatepicker]="picker" [value]="createdAtDate()">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <p>
+                Details: {{ticket()?.someText}}
+              </p>
+          </mat-card-content>
+        </mat-card-header>
+    </mat-card>
+}
