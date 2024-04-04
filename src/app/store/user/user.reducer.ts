@@ -1,11 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
-import { type User as UserState } from './user.model';
+import { type UserState } from './user.model';
 import * as LoginPageActions from './user.actions';
 
 export const initialState: UserState = {
   birthday: '',
   city: '',
-  id: '',
+  id: null,
   login: '',
   name: '',
   password: '',

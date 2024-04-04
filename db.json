@@ -5,8 +5,16 @@
         "secondName": "Vaserman",
         "login": "admin",
         "password": "admin",
-        "birthday": "da",
-        "city": "da"
+        "birthday": "2011-04-11T10:20:30Z",
+        "city": "kaliningrad"
+        },
+        {"id": 2,
+        "name": "Anna",
+        "secondName": "Kikinina",
+        "login": "anna157",
+        "password": "vkosmos",
+        "birthday": "2011-04-11T10:20:30Z",
+        "city": "artemovsk"
         }
     ]
 }
