@@ -1,0 +1,23 @@
+<form [formGroup]="loginform" (ngSubmit)="submitForm()" class="form">
+  <mat-form-field>
+      <mat-label>Login</mat-label>
+      <input matInput type="text" formControlName="login">
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password' " formControlName="password"> 
+        <button type="button" matSuffix mat-icon-button aria-label="Clear" (click)="togglePasswordVisibility()">
+          <mat-icon>{{showPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+  </mat-form-field>
+  <mat-card-actions align="end">
+         <button type="submit" color="primary" mat-raised-button [disabled]="isLoading()">Login</button>
+  </mat-card-actions>
+  
+</form>
+@if (isError()) {
+  <div class="error">
+     {{ error() }}
+  </div>
+}

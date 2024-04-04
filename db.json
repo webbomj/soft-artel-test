@@ -1,0 +1,12 @@
+{
+    "users": [
+        {"id": 1,
+        "name": "Anatolii",
+        "secondName": "Vaserman",
+        "login": "admin",
+        "password": "admin",
+        "birthday": "da",
+        "city": "da"
+        }
+    ]
+}
