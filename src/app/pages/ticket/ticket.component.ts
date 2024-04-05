@@ -27,7 +27,7 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.scss',
 })
-export class TicketComponent implements OnInit {
+export class TicketComponent {
   private store = inject(Store);
   private router = inject(Router);
   id = input<string>();
@@ -35,14 +35,4 @@ export class TicketComponent implements OnInit {
   ticket = this.store.selectSignal(selectedTicket);
 
   createdAtDate = computed(() => new Date(this.ticket()!.createdAt));
-
-  ngOnInit(): void {
-    const id = Number(this.id());
-    if (!Number.isNaN(id)) {
-      this.store.dispatch(beginLoadTickets());
-      this.store.dispatch(selecteTicket({ id: id }));
-    } else {
-      this.router.navigate(['/tickets']);
-    }
-  }
 }

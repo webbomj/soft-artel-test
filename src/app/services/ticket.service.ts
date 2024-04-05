@@ -8,10 +8,11 @@ import { Ticket } from '../store/tickets/tickets.model';
   providedIn: 'root',
 })
 export class TicketService {
-  private store = inject(Store);
   private http = inject(HttpClient);
 
   getTickets() {
-    return this.http.get<Ticket[]>(`${BASE_URL}/tickets`);
+    return this.http.get<(Omit<Ticket, 'id'> & { id: string })[]>(
+      `${BASE_URL}/tickets`
+    );
   }
 }
