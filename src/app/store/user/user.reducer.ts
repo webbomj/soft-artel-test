@@ -1,22 +1,34 @@
 import { createReducer, on } from '@ngrx/store';
 import { type UserState } from './user.model';
-import * as LoginPageActions from './user.actions';
+import * as UserActions from './user.actions';
 
 export const initialState: UserState = {
-  birthday: '',
-  city: '',
-  id: null,
-  login: '',
-  name: '',
-  password: '',
-  secondName: '',
+  allUsers: [],
+  profileId: null,
+  user: null,
 };
 
 const _userReducer = createReducer(
   initialState,
-  on(LoginPageActions.getUser, (state, action) => ({
+  on(UserActions.getUser, (state, action) => ({
     ...state,
-    ...action,
+    user: {
+      id: action.id,
+      birthday: action.birthday,
+      city: action.city,
+      login: action.login,
+      name: action.name,
+      password: action.password,
+      secondName: action.secondName,
+    },
+  })),
+  on(UserActions.getAllUsers, (state, action) => ({
+    ...state,
+    allUsers: action.users,
+  })),
+  on(UserActions.getProfileId, (state, action) => ({
+    ...state,
+    profileId: action.id,
   }))
 );
 

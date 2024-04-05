@@ -21,7 +21,7 @@ import {
   selectIsLoading,
 } from '../../store/login/login.selectors';
 import { beginLogin } from '../../store/login/login.actions';
-import { selectLogin, selectName } from '../../store/user/user.selectors';
+import { selectName } from '../../store/user/user.selectors';
 import { Router } from '@angular/router';
 
 @Component({

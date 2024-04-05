@@ -1,23 +1,25 @@
-<p>id: {{user().id}}</p>
-<p>login: {{user().login}}</p>
-<p>name: {{user().name}}</p>
-<p>secondName: {{user().secondName}}</p>
-<div>Birthday date: 
-    <mat-form-field>
-        <mat-label>Birthday Date</mat-label>
-        <input matInput [matDatepicker]="picker" [value]="birthdateDate()">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-</div>
-<div>City: 
-    <mat-form-field>
-        <mat-label>Favorite food</mat-label>
-        <mat-select [value]="user().city">
-          @for (city of cities; track city) {
-            <mat-option [value]="city">{{city}}</mat-option>
-          }
-        </mat-select>
+  <p>id: {{user()?.id}}</p>
+  <p>login: {{user()?.login}}</p>
+  <p>name: {{user()?.name}}</p>
+  <p>secondName: {{user()?.secondName}}</p>
+  <div>Birthday date: 
+      <mat-form-field>
+          <mat-label>Birthday Date</mat-label>
+          <input matInput [matDatepicker]="picker" 
+          [value]="birthdateDate()"
+          >
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-</div>
+  </div>
+  <div>City: 
+      <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <mat-select [value]="user()?.city">
+            @for (city of cities; track city) {
+              <mat-option [value]="city">{{city}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+  </div>

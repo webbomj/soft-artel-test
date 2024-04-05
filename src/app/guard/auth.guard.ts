@@ -2,7 +2,7 @@ import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { LocalstorageService } from '../services/localstorage.service';
 import { Store } from '@ngrx/store';
-import { selectUserState } from '../store/user/user.selectors';
+import { selectLogin, selectUserState } from '../store/user/user.selectors';
 import { UserService } from '../services/user.service';
 
 export const authGuard: CanActivateFn = (_route, _state) => {
@@ -13,7 +13,7 @@ export const authGuard: CanActivateFn = (_route, _state) => {
   const userService = inject(UserService);
 
   const userInLocalStorage = localStorageService.getUser();
-  const userInStore = store.selectSignal(selectUserState);
+  const userInStore = store.selectSignal(selectLogin);
 
   const isUserExist =
     userInLocalStorage &&
@@ -24,7 +24,7 @@ export const authGuard: CanActivateFn = (_route, _state) => {
     userService.setUserToStore(userInLocalStorage);
   }
 
-  if (userInStore() && userInStore().login !== '') {
+  if (userInStore()) {
     return true;
   }
 
