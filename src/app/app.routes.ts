@@ -11,21 +11,37 @@ import { ticketGuard } from './guard/ticket.guard';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent, canActivate: [authGuard] },
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [authGuard],
+    data: {
+      breadcrumb: 'Home',
+    },
+  },
   {
     path: 'profile/:id',
     component: ProfileComponent,
     canActivate: [authGuard, profileGuard],
+    data: {
+      breadcrumb: 'Profile id',
+    },
   },
   {
     path: 'tickets',
     component: TicketsComponent,
     canActivate: [authGuard],
+    data: {
+      breadcrumb: 'Tickets',
+    },
   },
   {
     path: 'ticket/:id',
     component: TicketComponent,
     canActivate: [authGuard, ticketGuard],
+    data: {
+      breadcrumb: 'Ticket id',
+    },
   },
   { path: '**', component: PageNotFoundComponent },
 ];

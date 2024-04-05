@@ -11,11 +11,13 @@ import {
 } from '../../store/tickets/tickets.actions';
 import { Ticket } from '../../store/tickets/tickets.model';
 import { Router } from '@angular/router';
+import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-tickets',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, BreadcrumbComponent],
   templateUrl: './tickets.component.html',
   styleUrl: './tickets.component.scss',
 })

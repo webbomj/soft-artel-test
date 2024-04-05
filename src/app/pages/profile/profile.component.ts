@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
     MatNativeDateModule,
     MatInputModule,
     MatCardModule,
+    BreadcrumbComponent,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
