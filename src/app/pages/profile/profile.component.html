@@ -1,3 +1,7 @@
+<mat-card>
+  <mat-card-header  class="card">
+    <mat-card-title>Profile {{ user()?.id }}</mat-card-title>
+    <mat-card-content>
   <p>id: {{user()?.id}}</p>
   <p>login: {{user()?.login}}</p>
   <p>name: {{user()?.name}}</p>
@@ -23,3 +27,6 @@
           </mat-select>
         </mat-form-field>
   </div>
+</mat-card-content>
+  </mat-card-header>
+</mat-card>

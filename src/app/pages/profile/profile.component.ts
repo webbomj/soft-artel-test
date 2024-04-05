@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
     MatNativeDateModule,
     MatInputModule,
+    MatCardModule,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
